@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabInSpace | Manufacturing in Microgravity</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN for rapid prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        space: {
+                            900: '#050505',
+                            800: '#0B101E',
+                            700: '#1A233A',
+                        },
+                        cyan: {
+                            neon: '#00F2FE',
+                        },
+                        purple: {
+                            plasma: '#4FACFE',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #F8F9FA; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1A233A; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4FACFE; }
+        
+        .glass-panel {
+            background: rgba(11, 16, 30, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #00F2FE, #4FACFE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-cyan-neon selection:text-black">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 glass-panel border-b-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer">
+                <!-- Simple SVG Logo -->
+                <svg class="w-8 h-8 text-cyan-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
+                </svg>
+                <span class="font-display font-bold text-xl tracking-wide">LabInSpace</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+                <a href="#" class="hover:text-cyan-neon transition-colors">Products</a>
+                <a href="#" class="hover:text-cyan-neon transition-colors">Mission Control</a>
+                <a href="#" class="hover:text-cyan-neon transition-colors">Research</a>
+                <a href="#" class="hover:text-cyan-neon transition-colors">Company</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-sm font-medium hover:text-white hidden md:block">Sign In</a>
+                <a href="#" class="bg-cyan-neon text-black px-5 py-2.5 rounded-sm font-display font-bold text-sm hover:bg-white transition-colors duration-300">
+                    Book Payload
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-plasma/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <div class="inline-block border border-cyan-neon/30 bg-cyan-neon/10 text-cyan-neon px-3 py-1 rounded-full text-xs font-mono mb-6">
+                    SYSTEMS NOMINAL • NEXT LAUNCH Q3 2025
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    Manufacturing the Future.<br>
+                    <span class="gradient-text">In Microgravity.</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-8 max-w-lg font-light leading-relaxed">
+                    The tier-one orbital platform for next-generation pharmaceuticals, advanced materials, and fiber optics. Scale your research beyond Earth.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-white text-black px-8 py-4 rounded-sm font-display font-bold text-center hover:bg-gray-200 transition-colors">
+                        Explore Orbital Labs
+                    </a>
+                    <a href="#" class="glass-panel text-white px-8 py-4 rounded-sm font-display font-bold text-center hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Simulated 3D Capsule Element -->
+            <div class="relative hidden md:block animate-float">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800" alt="Spacecraft" class="rounded-full shadow-[0_0_80px_rgba(0,242,254,0.3)] object-cover w-[500px] h-[500px] border border-white/10">
+                <!-- HUD Overlays -->
+                <div class="absolute top-10 -left-10 glass-panel p-3 rounded text-xs font-mono text-cyan-neon">
+                    ALT: 408.2 km<br>
+                    VEL: 7.66 km/s
+                </div>
+                <div class="absolute bottom-20 -right-5 glass-panel p-3 rounded text-xs font-mono text-purple-plasma">
+                    TEMP: 2.7 K<br>
+                    RAD: NOMINAL
+                </div>
+            </div>
+        </div>
+
+        <!-- Telemetry Ticker -->
+        <div class="absolute bottom-0 w-full glass-panel border-b-0 border-l-0 border-r-0 py-3 flex overflow-hidden">
+            <div class="animate-marquee whitespace-nowrap flex gap-12 text-xs font-mono text-gray-400">
+                <span>ORBITAL INCLINATION: 51.6°</span>
+                <span class="text-cyan-neon">•</span>
+                <span>ACTIVE PAYLOADS: 12</span>
+                <span class="text-cyan-neon">•</span>
+                <span>DATA DOWNLINK: 1.2 Gbps</span>
+                <span class="text-cyan-neon">•</span>
+                <span>POWER GENERATION: 120kW</span>
+                <span class="text-cyan-neon">•</span>
+                <span>ORBITAL INCLINATION: 51.6°</span>
+                <span class="text-cyan-neon">•</span>
+                <span>ACTIVE PAYLOADS: 12</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BANNER -->
+    <section class="border-y border-white/5 bg-space-800 py-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-xs font-mono text-gray-500 mb-6 tracking-widest uppercase">Trusted by pioneers in aerospace & science</p>
+            <div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-50 grayscale">
+                <!-- Placeholder text for logos -->
+                <h3 class="font-display font-bold text-2xl hover:text-white transition-colors cursor-pointer">NASA</h3>
+                <h3 class="font-display font-bold text-2xl hover:text-white transition-colors cursor-pointer">ESA</h3>
+                <h3 class="font-display font-bold text-2xl hover:text-white transition-colors cursor-pointer">DARPA</h3>
+                <h3 class="font-display font-bold text-2xl hover:text-white transition-colors cursor-pointer">PFIZER</h3>
+                <h3 class="font-display font-bold text-2xl hover:text-white transition-colors cursor-pointer">SPACEX</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE FLEET (PRODUCTS) -->
+    <section class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 space-y-32">
+            
+            <!-- Product 1 -->
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=800" alt="Bioreactor" class="rounded-sm border border-white/10 opacity-80 hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="font-display text-4xl font-bold mb-4">The Orbital Bioreactor</h2>
+                    <p class="text-gray-400 mb-6 font-light leading-relaxed">
+                        Zero-G Protein Crystallization. Without the interference of gravity-driven convection, our automated orbital labs yield crystal purities and uniformities that are physically impossible to achieve on Earth.
+                    </p>
+                    <ul class="space-y-3 mb-8 text-sm font-mono text-gray-300">
+                        <li class="flex items-center gap-3"><span class="text-cyan-neon">✓</span> Temperature control ±0.1°C</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-neon">✓</span> 96-well automated plating</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-neon">✓</span> Live microscopic imaging downlink</li>
+                    </ul>
+                    <a href="#" class="text-cyan-neon font-display font-bold hover:text-white transition-colors inline-flex items-center gap-2">
+                        View Tech Specs <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-display text-4xl font-bold mb-4">The Forge Module</h2>
+                    <p class="text-gray-400 mb-6 font-light leading-relaxed">
+                        Flawless ZBLAN Fiber Optics. Manufactured in the vacuum and microgravity of orbit, our fibers exhibit signal attenuation levels magnitudes lower than silica fibers produced terrestrially.
+                    </p>
+                    <a href="#" class="text-cyan-neon font-display font-bold hover:text-white transition-colors inline-flex items-center gap-2">
+                        View Tech Specs <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&q=80&w=800" alt="Space Forge" class="rounded-sm border border-white/10 opacity-80 hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOFTWARE (MISSION CONTROL) -->
+    <section class="py-24 bg-space-800 border-y border-white/5 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Your Payload. Controlled from your Browser.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Tier-one hardware requires tier-one software. Monitor, actuate, and retrieve data from your orbital experiments securely.</p>
+            </div>
+            
+            <!-- Mock Dashboard UI -->
+            <div class="glass-panel rounded-lg border border-white/10 p-2 shadow-2xl relative z-10">
+                <div class="bg-space-900 rounded-md p-6 h-96 flex flex-col">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
+                        <div class="font-mono text-sm">MISSION_CTRL_v2.4</div>
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 h-full">
+                        <div class="border border-white/5 rounded bg-space-800 p-4">
+                            <div class="text-xs text-gray-500 font-mono mb-2">INTERNAL TEMP</div>
+                            <div class="text-3xl font-display text-cyan-neon">22.4°C</div>
+                            <!-- Mock graph line -->
+                            <div class="mt-4 h-16 border-b border-l border-white/10 relative">
+                                <svg class="w-full h-full text-cyan-neon opacity-50" preserveAspectRatio="none" viewBox="0 0 100 100">
+                                    <polyline fill="none" stroke="currentColor" stroke-width="2" points="0,80 20,75 40,85 60,40 80,45 100,20"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="border border-white/5 rounded bg-space-800 p-4 col-span-2">
+                            <div class="text-xs text-gray-500 font-mono mb-2">LIVE CAMERA FEED (CAM_02)</div>
+                            <div class="w-full h-40 bg-black rounded border border-white/10 flex items-center justify-center relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" class="opacity-40 object-cover w-full h-full grayscale" alt="Feed">
+                                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] pointer-events-none"></div>
+                                <div class="absolute bottom-2 left-2 font-mono text-[10px] text-white">REC • 00:14:59:22</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA / LAUNCHPAD -->
+    <section class="py-32 relative text-center">
+        <!-- Subtle background overlay for the CTA -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-space-900 via-space-900/80 to-transparent"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto px-6">
+            <h2 class="font-display text-5xl font-bold mb-6">Ready to change how you manufacture?</h2>
+            <p class="text-xl text-gray-300 mb-10 font-light">
+                Payload integration for our 2026 commercial flights is closing soon. Secure your slot on the manifest today.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-cyan-neon text-black px-8 py-4 rounded-sm font-display font-bold hover:bg-white transition-colors text-lg">
+                    Schedule a Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-space-900 border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-6 h-6 text-cyan-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path></svg>
+                        <span class="font-display font-bold text-lg">LabInSpace</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-6 max-w-xs">The leading orbital platform for commercial manufacturing and microgravity research.</p>
+                    <div class="flex items-center gap-2 text-xs font-mono text-gray-400 bg-space-800 inline-flex px-3 py-1.5 rounded border border-white/5">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        ALL SYSTEMS NOMINAL
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold mb-4">Hardware</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-cyan-neon">Bioreactor</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">The Forge</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">Re-entry Capsule</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">Payload Specs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold mb-4">Software</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-cyan-neon">Mission Control</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">Developer API</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-cyan-neon">About Us</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon text-white font-medium flex items-center gap-2">Careers <span class="bg-cyan-neon text-black text-[10px] px-1.5 py-0.5 rounded">HIRING</span></a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">Press</a></li>
+                        <li><a href="#" class="hover:text-cyan-neon">Investors</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-600 font-mono">
+                <p>&copy; 2025 LabInSpace Inc. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                    <a href="#" class="hover:text-white">ITAR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
